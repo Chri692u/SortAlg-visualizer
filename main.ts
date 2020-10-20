@@ -28,7 +28,6 @@ function bingoSort(arr: number[]) {
       swap(arr, min, i)
     }
   }
-
 }
 
 function swap(arr: number[], indexOne: number, indexTwo: number) {
