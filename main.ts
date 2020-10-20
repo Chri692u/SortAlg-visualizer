@@ -1,5 +1,3 @@
-const test: number[] = [123, 3123, 414, 91, 9818, 99, 1, 10000];
-
 function visualizer(val: number, arr: number[]) {
   switch (val) {
     case 1:
