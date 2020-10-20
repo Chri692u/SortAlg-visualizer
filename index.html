@@ -21,37 +21,44 @@
       </p>
       <p>
         Choose Algorithm:
-        <select class="browser-default custom-select">
-          <option selected>Open this select menu</option>
+        <select class="browser-default custom-select" id="options">
+          <!-- <option selected>Open this select menu</option> -->
           <option value="1">Insertion sort</option>
           <option value="2">Bingo sort</option>
           <option value="3">double selection sort</option>
         </select>
       </p>
       <div id="btn">
-        <button type="button" id="btn" class="btn btn-primary">Sort!</button>
+        <button type="button" id="btnClick" class="btn btn-primary">Sort!</button>
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
-
+  <script src="./main.js"></script>
   <script>
-    let
-      slider = document.getElementById("myRange"),
-      output = document.getElementById("array-size");
-
-    output.innerHTML = `Size of array: ${slider.value}`;
-
     const randomArray = (val) => {
       return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1));
     }
 
+    let
+      slider = document.getElementById("myRange"),
+      output = document.getElementById("array-size"),
+      sortAlg = document.getElementById("options"),
+      bnt = document.getElementById("btnClick"),
+      arr = randomArray(1);
+
+    output.innerHTML = `Size of array: ${slider.value}`;
+
     slider.oninput = function () {
       output.innerHTML = `Size of array: ${this.value}`;
-      randomArray(this.value);
+      arr = randomArray(this.value);
+    }
+
+    bnt.onclick = function () {
+      console.log(visualizer(Number(sortAlg.value), arr));
     }
 
   </script>
+
 </body>
 
 
