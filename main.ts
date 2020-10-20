@@ -1,5 +1,8 @@
-const test: number[] = [123, 3123, 414, 91, 9818, 99, 1, 10000]
+const test: number[] = [123, 3123, 414, 91, 9818, 99, 1, 10000];
+
 console.log(insertionSort(test))
+console.log(doubleSelectionSort(test));
+console.log(bingoSort(test));
 
 function insertionSort(array: number[]) {
   for (let i = 1; i < array.length; i++) {
@@ -34,7 +37,6 @@ function doubleSelectionSort(arr: number[]) {
     }
 
     swap(arr, i, minIndex)
-
     if (arr[minIndex] === max) {
       swap(arr, j, minIndex);
     } else {
@@ -42,6 +44,7 @@ function doubleSelectionSort(arr: number[]) {
     }
 
   }
+  return arr;
 }
 
 function bingoSort(arr: number[]) {
@@ -58,7 +61,7 @@ function bingoSort(arr: number[]) {
       swap(arr, min, i)
     }
   }
-
+  return arr;
 }
 
 function swap(arr: number[], indexOne: number, indexTwo: number) {
