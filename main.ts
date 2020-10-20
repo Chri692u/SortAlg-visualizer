@@ -1,15 +1,15 @@
-function visualizer(val: number, arr: number[]) {
+function visualizer (val: number, arr: number[]) {
   switch (val) {
     case 1:
-      return insertionSort(arr);
+      return insertionSort(arr)
     case 2:
-      return doubleSelectionSort(arr);
+      return doubleSelectionSort(arr)
     case 3:
-      return bingoSort(arr);
+      return bingoSort(arr)
   }
 }
 
-function insertionSort(array: number[]) {
+function insertionSort (array: number[]) {
   for (let i = 1; i < array.length; i++) {
     const key: number = array[i]
     let j: number = i - 1
@@ -22,53 +22,48 @@ function insertionSort(array: number[]) {
   return array
 }
 
-function doubleSelectionSort(arr: number[]) {
+function doubleSelectionSort (arr: number[]) {
   for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
-
-    let
-      min = arr[i],
-      max = arr[i],
-      minIndex = i,
-      maxIndex = i;
+    let min = arr[i]
+    let max = arr[i]
+    let minIndex = i
+    let maxIndex = i
 
     for (let k = i; k <= j; k++) {
       if (arr[k] > max) {
-        max = arr[k];
-        maxIndex = k;
+        max = arr[k]
+        maxIndex = k
       } else if (arr[k] < min) {
-        min = arr[k];
-        minIndex = k;
+        min = arr[k]
+        minIndex = k
       }
     }
 
     swap(arr, i, minIndex)
     if (arr[minIndex] === max) {
-      swap(arr, j, minIndex);
+      swap(arr, j, minIndex)
     } else {
-      swap(arr, j, maxIndex);
+      swap(arr, j, maxIndex)
     }
-
   }
-  return arr;
+  return arr
 }
 
-function bingoSort(arr: number[]) {
-
+function bingoSort (arr: number[]) {
   for (let i = 0; i < arr.length - 1; i++) {
-    let min: number = i;
+    let min: number = i
     for (let j = i + 1; j < arr.length; j++) {
-
       if (arr[j] < arr[min]) {
-        min = j;
+        min = j
       }
     }
     if (min !== i) {
       swap(arr, min, i)
     }
   }
-  return arr;
+  return arr
 }
 
-function swap(arr: number[], indexOne: number, indexTwo: number) {
-  [arr[indexOne], arr[indexTwo]] = [arr[indexTwo], arr[indexOne]];
+function swap (arr: number[], indexOne: number, indexTwo: number) {
+  [arr[indexOne], arr[indexTwo]] = [arr[indexTwo], arr[indexOne]]
 }
