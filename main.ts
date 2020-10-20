@@ -1,8 +1,8 @@
 const test: number[] = [123, 3123, 414, 91, 9818, 99, 1, 10000];
 
 console.log(insertionSort(test))
-console.log(doubleSelectionSort(test));
-console.log(bingoSort(test));
+console.log(doubleSelectionSort(test))
+console.log(bingoSort(test))
 
 function insertionSort (array: number[]) {
   for (let i = 1; i < array.length; i++) {
