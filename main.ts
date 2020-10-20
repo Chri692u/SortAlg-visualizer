@@ -1,18 +1,17 @@
 const test: number[] = [123, 3123, 414, 91, 9818, 99, 1, 10000];
 
-function sortPicker(val: number) {
+function visualizer(val: number, arr: number[]) {
   switch (val) {
     case 1:
-      return console.log(insertionSort(test));
+      return insertionSort(arr);
     case 2:
-      return console.log(doubleSelectionSort(test));
+      return doubleSelectionSort(arr);
     case 3:
-      return console.log(bingoSort(test));
-
+      return bingoSort(arr);
   }
 }
 
-function insertionSort (array: number[]) {
+function insertionSort(array: number[]) {
   for (let i = 1; i < array.length; i++) {
     const key: number = array[i]
     let j: number = i - 1
@@ -25,7 +24,7 @@ function insertionSort (array: number[]) {
   return array
 }
 
-function doubleSelectionSort (arr: number[]) {
+function doubleSelectionSort(arr: number[]) {
   for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
 
     let
@@ -55,7 +54,7 @@ function doubleSelectionSort (arr: number[]) {
   return arr;
 }
 
-function bingoSort (arr: number[]) {
+function bingoSort(arr: number[]) {
 
   for (let i = 0; i < arr.length - 1; i++) {
     let min: number = i;
