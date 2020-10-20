@@ -4,3 +4,21 @@
   margin-top: 50px;
   margin-bottom: 35px;
 }
+
+.slider{
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  background-color: #0275d8;
+  outline: none;
+  opacity: 75%;
+  transition: .05s;
+}
+
+.slider:hover {
+  opacity: 100%;
+}
+
+#btn{
+  text-align: center;
+}
