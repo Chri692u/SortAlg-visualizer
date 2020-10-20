@@ -17,7 +17,7 @@ function insertionSort (array: number[]) {
   return array
 }
 
-function doubleSelectionSort(arr: number[]) {
+function doubleSelectionSort (arr: number[]) {
   for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
 
     let
@@ -47,7 +47,7 @@ function doubleSelectionSort(arr: number[]) {
   return arr;
 }
 
-function bingoSort(arr: number[]) {
+function bingoSort (arr: number[]) {
 
   for (let i = 0; i < arr.length - 1; i++) {
     let min: number = i;
@@ -61,10 +61,7 @@ function bingoSort(arr: number[]) {
       swap(arr, min, i)
     }
   }
-<<<<<<< HEAD
-=======
   return arr;
->>>>>>> 14134d9dc556c21d4a6d49c0e0652a6b72e80112
 }
 
 function swap(arr: number[], indexOne: number, indexTwo: number) {
