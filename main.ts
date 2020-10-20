@@ -12,7 +12,7 @@ function sortPicker(val: number) {
   }
 }
 
-function insertionSort(array: number[]) {
+function insertionSort (array: number[]) {
   for (let i = 1; i < array.length; i++) {
     const key: number = array[i]
     let j: number = i - 1
@@ -25,7 +25,7 @@ function insertionSort(array: number[]) {
   return array
 }
 
-function doubleSelectionSort(arr: number[]) {
+function doubleSelectionSort (arr: number[]) {
   for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
 
     let
@@ -55,7 +55,7 @@ function doubleSelectionSort(arr: number[]) {
   return arr;
 }
 
-function bingoSort(arr: number[]) {
+function bingoSort (arr: number[]) {
 
   for (let i = 0; i < arr.length - 1; i++) {
     let min: number = i;
