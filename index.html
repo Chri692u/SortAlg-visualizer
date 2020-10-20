@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,9 @@
     <h4 id="title">Sorting algorithm visualizer</h4>
     <div id="init">
       <p>
-        Size of array:
-        <label for="formControlRange">Example Range input</label>
-        <input type="range" class="form-control-range" id="formControlRange">
+      <p id="array-size">Size of array:</p>
+      <input type="range" value="0" min="0" max="25" class="form-control-range" id="formControlRange">
+      <label for="formControlRange">Example Range input</label>
       </p>
       <p>
         Choose Algorithm:
@@ -28,6 +29,20 @@
     </div>
     <hr>
   </div>
-  <script src="main.js"></script> 
+  <script src="main.js"></script>
+
+  <script>
+    let
+      slider = document.getElementById("formControlRange"),
+      output = document.getElementById("array-size");
+
+    output.innerHTML = `Size of array: ${slider.value}`;
+    slider.oninput = function () {
+      output.innerHTML = `Size of array: ${this.value}`;
+      return Array.from({ length: this.value }, () => Math.floor((Math.random() * 10) + 1));
+    }
+  </script>
 </body>
+
+
 </html>
