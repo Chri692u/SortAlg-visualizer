@@ -36,25 +36,25 @@
   <script src="./main.js"></script>
   <script>
     const randomArray = (val) => {
-      return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1));
+      return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1))
     }
 
     let
       slider = document.getElementById("myRange"),
       output = document.getElementById("array-size"),
       sortAlg = document.getElementById("options"),
-      bnt = document.getElementById("btnClick"),
-      arr = randomArray(1);
+      bnt = document.getElementById("btnClick")
+      arr = randomArray(1)
 
-    output.innerHTML = `Size of array: ${slider.value}`;
+    output.innerHTML = `Size of array: ${slider.value}`
 
     slider.oninput = function () {
-      output.innerHTML = `Size of array: ${this.value}`;
-      arr = randomArray(this.value);
+      output.innerHTML = `Size of array: ${this.value}`
+      arr = randomArray(this.value)
     }
 
     bnt.onclick = function () {
-      console.log(visualizer(Number(sortAlg.value), arr));
+      console.log(visualizer(Number(sortAlg.value), arr))
     }
 
   </script>
