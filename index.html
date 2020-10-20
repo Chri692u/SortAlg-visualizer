@@ -24,6 +24,8 @@
         <select class="browser-default custom-select">
           <option selected>Open this select menu</option>
           <option value="1">Insertion sort</option>
+          <option value="2">Bingo sort</option>
+          <option value="3">double selection sort</option>
         </select>
       </p>
       <div id="btn">
@@ -39,10 +41,16 @@
       output = document.getElementById("array-size");
 
     output.innerHTML = `Size of array: ${slider.value}`;
+
+    const randomArray = (val) => {
+      return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1));
+    }
+
     slider.oninput = function () {
       output.innerHTML = `Size of array: ${this.value}`;
-      return Array.from({ length: this.value }, () => Math.floor((Math.random() * 10) + 1));
+      randomArray(this.value);
     }
+
   </script>
 </body>
 

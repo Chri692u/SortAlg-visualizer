@@ -21,5 +21,13 @@
   },
   "dependencies": {
     "typescript": "^4.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chri692u/SortAlg-visualizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Chri692u/SortAlg-visualizer/issues"
+  },
+  "homepage": "https://github.com/Chri692u/SortAlg-visualizer#readme"
 }
