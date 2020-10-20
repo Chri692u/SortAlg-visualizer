@@ -1,3 +1,10 @@
-function swap (arr: number[], indexOne: number, indexTwo: number) {
-  [arr[indexOne], arr[indexTwo]] = [arr[indexTwo], arr[indexOne]]
+function visualizer(val: number, arr: number[]) {
+  switch (val) {
+    case 1:
+      return insertionSort(arr)
+    case 2:
+      return doubleSelectionSort(arr)
+    case 3:
+      return bingoSort(arr)
+  }
 }
