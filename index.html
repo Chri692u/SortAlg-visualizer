@@ -16,7 +16,7 @@
       <p id="array-size">
         Size of array:
       <div class="slidecontainer">
-        <input type="range" min="1" max="25" value="0" class="slider" id="myRange">
+        <input type="range" min="1" max="25" value="1" class="slider" id="myRange">
       </div>
       </p>
       <p>
@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  <script  src="./main.js"></script>
+  <script src="./main.js"></script>
   <script>
     const randomArray = (val) => {
       return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1))
