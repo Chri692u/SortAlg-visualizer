@@ -1,4 +1,4 @@
-function visualizer (val: number, arr: number[]) {
+function visualizer (val: number, arr: number[]): any {
   switch (Number(val)) {
     case 1:
       return Algorithms.insertionSort(arr)
