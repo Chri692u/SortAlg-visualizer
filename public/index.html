@@ -11,7 +11,7 @@
 
 <body>
   <div class="container">
-    <h4 id="title">Sorting algorithm visualizer</h4>
+    <h4 id="title">Sorting Algorithm Visualizer</h4>
     <div id="init">
       <p id="array-size">
         Size of array:
@@ -34,31 +34,6 @@
     </div>
   </div>
   <script src="./src/main.js"></script>
-  <script>
-    const randomArray = (val) => {
-      return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1))
-    }
-
-    let
-      slider = document.getElementById("myRange"),
-      output = document.getElementById("array-size"),
-      sortAlg = document.getElementById("options"),
-      bnt = document.getElementById("btnClick")
-      arr = randomArray(1)
-
-    output.innerHTML = `Size of array: ${slider.value}`
-
-    slider.oninput = function () {
-      output.innerHTML = `Size of array: ${this.value}`
-      arr = randomArray(this.value)
-    }
-
-    btn.onclick = function () {
-      console.log(visualizer(Number(sortAlg.value), arr))
-    }
-
-  </script>
-
 </body>
 
 
