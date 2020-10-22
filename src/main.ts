@@ -18,18 +18,18 @@ function createArrayFromSlider () {
 
   const slider = <HTMLInputElement>document.getElementById('myRange')
   const output: HTMLElement = document.getElementById('array-size')!
-  const sortAlg: HTMLElement = document.getElementById('options')!
+  const sortAlg: any = document.getElementById('options')
   const btnID: HTMLElement = document.getElementById('btnClick')!
   let arr = randomArray(1)
 
   output.innerHTML = `Size of array: ${slider.value}`
 
-  slider.oninput = function () {
+  slider.oninput = function (this: any) {
     output.innerHTML = `Size of array: ${this.value}`
     arr = randomArray(this.value)
   }
 
-  btnID.onclick = function () {
+  btnID.onclick = function (this: any) {
     console.log(visualizer(Number(sortAlg.value), arr))
   }
 }
