@@ -40,10 +40,10 @@ class Algorithms {
 
   static doubleSelectionSort (arr: number[]): number[] {
     for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
-      let min = arr[i]
-      let max = arr[i]
-      let minIndex = i
-      let maxIndex = i
+      let min: number = arr[i]
+      let max: number = arr[i]
+      let minIndex: number = i
+      let maxIndex:number = i
 
       for (let k = i; k <= j; k++) {
         if (arr[k] > max) {
