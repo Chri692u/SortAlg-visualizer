@@ -9,6 +9,7 @@ const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
 const sortAlg: any = document.getElementById('options')
 const btnID: HTMLElement = document.getElementById('btnClick')!
+const showArray: HTMLElement = document.getElementById('showArray')!
 let arr = randomArray(1)
 
 output.innerHTML = `Size of array: ${slider.value}`
@@ -18,8 +19,8 @@ slider.oninput = function () {
   arr = randomArray(Number(slider.value))
 }
 
-btnID.onclick = function (this: any) {
-  console.log(visualizer(Number(sortAlg.value), arr))
+btnID.onclick = function () {
+  showArray.innerHTML = `Unsorted array: ${arr?.join(' ')} ---- Sorted array: ${visualizer(Number(sortAlg.value), arr)?.join(' ')}`
 }
 
 // Functions
