@@ -1,5 +1,4 @@
 import { Algorithms } from './Algorithms' // Sorting algorithm implementation class
-
 function visualizer (val: number, arr: number[]) {
   switch (Number(val)) {
     case 1:
@@ -11,25 +10,25 @@ function visualizer (val: number, arr: number[]) {
   }
 }
 
-function createArrayFromSlider () {
-  const randomArray = (val: number) => {
-    return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1))
-  }
+// function createArrayFromSlider () {
+//   const randomArray = (val: number) => {
+//     return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1))
+//   }
 
-  const slider = <HTMLInputElement>document.getElementById('myRange')
-  const output: HTMLElement = document.getElementById('array-size')!
-  const sortAlg: HTMLElement = document.getElementById('options')!
-  const btnID: HTMLElement = document.getElementById('btnClick')!
-  let arr = randomArray(1)
+//   const slider = <HTMLInputElement>document.getElementById('myRange')
+//   const output: HTMLElement = document.getElementById('array-size')!
+//   const sortAlg: HTMLElement = document.getElementById('options')!
+//   const btnID: HTMLElement = document.getElementById('btnClick')!
+//   let arr = randomArray(1)
 
-  output.innerHTML = `Size of array: ${slider.value}`
+//   output.innerHTML = `Size of array: ${slider.value}`
 
-  slider.oninput = function () {
-    output.innerHTML = `Size of array: ${this.value}`
-    arr = randomArray(this.value)
-  }
+//   slider.oninput = function () {
+//     output.innerHTML = `Size of array: ${this.value}`
+//     arr = randomArray(this.value)
+//   }
 
-  btnID.onclick = function () {
-    console.log(visualizer(Number(sortAlg.value), arr))
-  }
-}
+//   btnID.onclick = function () {
+//     console.log(visualizer(Number(sortAlg.value), arr))
+//   }
+// }
