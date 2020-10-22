@@ -10,7 +10,7 @@ function visualizer (val: number, arr: number[]) {
 }
 
 class Algorithms {
-  static insertionSort (array: number[]) {
+  static insertionSort (array: number[]): number[] {
     for (let i = 1; i < array.length; i++) {
       const key: number = array[i]
       let j: number = i - 1
@@ -23,7 +23,7 @@ class Algorithms {
     return array
   }
 
-  static bingoSort (arr: number[]) {
+  static bingoSort (arr: number[]): number[] {
     for (let i = 0; i < arr.length - 1; i++) {
       let min: number = i
       for (let j = i + 1; j < arr.length; j++) {
