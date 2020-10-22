@@ -38,7 +38,7 @@ class Algorithms {
     return arr
   }
 
-  static doubleSelectionSort (arr: number[]) {
+  static doubleSelectionSort (arr: number[]): number[] {
     for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
       let min = arr[i]
       let max = arr[i]
@@ -55,11 +55,11 @@ class Algorithms {
         }
       }
 
-      Algorithms.swap(arr, i, minIndex);
+      Algorithms.swap(arr, i, minIndex)
       if (arr[minIndex] === max) {
-        Algorithms.swap(arr, j, minIndex);
+        Algorithms.swap(arr, j, minIndex)
       } else {
-        Algorithms.swap(arr, j, maxIndex);
+        Algorithms.swap(arr, j, maxIndex)
       }
     }
     return arr
