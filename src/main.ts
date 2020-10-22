@@ -1,5 +1,6 @@
 import { Algorithms } from './Algorithms' // Sorting algorithm implementation class
 
+// HTML binding
 const randomArray = (val: number) => {
   return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1))
 }
@@ -21,6 +22,7 @@ btnID.onclick = function (this: any) {
   console.log(visualizer(Number(sortAlg.value), arr))
 }
 
+// Functions
 function visualizer (val: number, arr: number[]) {
   switch (Number(val)) {
     case 1:
