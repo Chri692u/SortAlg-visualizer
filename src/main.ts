@@ -1,4 +1,4 @@
-function visualizer (val: number, arr: number[]) {
+function visualizer (val: number, arr: number[]): any {
   switch (Number(val)) {
     case 1:
       return Algorithms.insertionSort(arr)
@@ -10,7 +10,7 @@ function visualizer (val: number, arr: number[]) {
 }
 
 class Algorithms {
-  static insertionSort (array: number[]) {
+  static insertionSort (array: number[]): number[] {
     for (let i = 1; i < array.length; i++) {
       const key: number = array[i]
       let j: number = i - 1
@@ -23,7 +23,7 @@ class Algorithms {
     return array
   }
 
-  static bingoSort (arr: number[]) {
+  static bingoSort (arr: number[]): number[] {
     for (let i = 0; i < arr.length - 1; i++) {
       let min: number = i
       for (let j = i + 1; j < arr.length; j++) {
@@ -38,12 +38,12 @@ class Algorithms {
     return arr
   }
 
-  static doubleSelectionSort (arr: number[]) {
+  static doubleSelectionSort (arr: number[]): number[] {
     for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
-      let min = arr[i]
-      let max = arr[i]
-      let minIndex = i
-      let maxIndex = i
+      let min: number = arr[i]
+      let max: number = arr[i]
+      let minIndex: number = i
+      let maxIndex:number = i
 
       for (let k = i; k <= j; k++) {
         if (arr[k] > max) {
@@ -55,11 +55,11 @@ class Algorithms {
         }
       }
 
-      Algorithms.swap(arr, i, minIndex);
+      Algorithms.swap(arr, i, minIndex)
       if (arr[minIndex] === max) {
-        Algorithms.swap(arr, j, minIndex);
+        Algorithms.swap(arr, j, minIndex)
       } else {
-        Algorithms.swap(arr, j, maxIndex);
+        Algorithms.swap(arr, j, maxIndex)
       }
     }
     return arr
