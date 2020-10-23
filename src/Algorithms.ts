@@ -1,16 +1,15 @@
 import { swap } from './auxiliaryFunctions'
 
 export class Algorithms {
-  static insertionSort (array: number[]): number[] {
+  static insertionSort (array: any): any[] {
     for (let i = 1; i < array.length; i++) {
-      const key: number = array[i] // highlight key
+      const key: number = array[i].number // highlight key (yellow color)
       let j: number = i - 1
-      while (j >= 0 && array[j] > key) {
-        array[j + 1] = array[j] // highlight j
+      while (j >= 0 && array[j].number > key) {
+        array[j + 1].number = array[j].number // highlight j (yellow)
         j--
       }
-      array[j + 1] = key
-      console.log(array[j + 1])
+      array[j + 1].number = key // color = green, element is sorted
     }
     return array
   }
