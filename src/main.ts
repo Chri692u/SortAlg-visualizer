@@ -1,6 +1,7 @@
 import { Algorithms } from './Algorithms' // Sorting algorithm implementation class
 import { randomArray } from './auxiliaryFunctions'
 
+// HTML binding
 const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
 const btnID: HTMLElement = document.getElementById('btnClick')!
@@ -9,16 +10,16 @@ const options = <HTMLInputElement>document.getElementById('options')!
 output.innerHTML = `Size of array: ${slider.value}`
 let arr = randomArray(Number(slider.value))
 
-createArray(arr, 'red')
+drawArray(arr)
 
 slider.oninput = function () {
   output.innerHTML = `Size of array: ${slider.value}`
   arr = randomArray(Number(slider.value))
-  createArray(arr, 'red')
+  drawArray(arr)
 }
 
 btnID.onclick = function () {
-  createArray(visualizer(options.value, arr), 'green')
+  // drawArray(visualizer(options.value, arr))
 }
 
 // Functions
@@ -33,12 +34,12 @@ function visualizer (val: string, arr: number[]) {
   }
 }
 
-function createArray (arr: any, sort: string) : void {
+function drawArray (arr: any) : void {
   columns.innerHTML = ''
   for (let i = 0; i < arr.length; i++) {
     const div = document.createElement('div')
-    div.setAttribute('class', `col ${sort}`)
-    div.innerHTML = `${arr[i]}`
+    div.setAttribute('class', `col ${arr[i].color}`)
+    div.innerHTML = `${arr[i].number}`
     columns.appendChild(div)
   }
 }
