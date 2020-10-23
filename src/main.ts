@@ -5,6 +5,7 @@ const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
 const btnID: HTMLElement = document.getElementById('btnClick')!
 const columns: HTMLElement = document.getElementById('columns')!
+const options = <HTMLInputElement>document.getElementById('options')!
 output.innerHTML = `Size of array: ${slider.value}`
 let arr = randomArray(Number(slider.value))
 
@@ -17,7 +18,7 @@ slider.oninput = function () {
 }
 
 btnID.onclick = function () {
-  createArray(visualizer(sortAlg.value, arr), 'green')
+  createArray(visualizer(options.value, arr), 'green')
 }
 
 // Functions
@@ -36,10 +37,8 @@ function createArray (arr: any, sort: string) : void {
   columns.innerHTML = ''
   for (let i = 0; i < arr.length; i++) {
     const div = document.createElement('div')
-    div.setAttribute('class', sort)
-    div.setAttribute('class', 'col')
+    div.setAttribute('class', `col ${sort}`)
     div.innerHTML = `${arr[i]}`
     columns.appendChild(div)
-    console.log(123)
   }
 }
