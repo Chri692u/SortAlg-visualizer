@@ -1,9 +1,5 @@
 import { Algorithms } from './Algorithms' // Sorting algorithm implementation class
-
-// HTML binding
-const randomArray = (val: number) => {
-  return Array.from({ length: val }, () => Math.floor((Math.random() * 10) + 1))
-}
+import { randomArray } from './auxiliaryFunctions'
 
 const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
@@ -42,6 +38,7 @@ function createArray (arr: any, sort: string) : void {
   for (let i = 0; i < arr.length; i++) {
     const div = document.createElement('div')
     div.setAttribute('class', sort)
+    div.setAttribute('class', 'col')
     div.innerHTML = `${arr[i]}`
     columns.appendChild(div)
     console.log(123)
