@@ -27,10 +27,8 @@ function visualizer (val: string, arr: object[]) {
   switch (Number(val)) {
     case 1:
       return Algorithms.insertionSort(arr)
-    // case 2:
-    //   // return Algorithms.doubleSelectionSort(arr)
-    // case 3:
-    //   // return Algorithms.bingoSort(arr)
+    case 2:
+      return Algorithms.selectionsort(arr)
   }
 }
 

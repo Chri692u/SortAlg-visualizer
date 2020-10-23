@@ -1,4 +1,4 @@
-import { swap, drawArray, delay } from './auxiliaryFunctions'
+import { drawArray, delay } from './auxiliaryFunctions'
 
 export class Algorithms {
   static async insertionSort (array: any): Promise<any[]> {
@@ -30,45 +30,21 @@ export class Algorithms {
     return array
   }
 
-  static async bingoSort (arr: any): Promise<any[]> {
-    for (let i = 0; i < arr.length - 1; i++) {
-      let min: number = i
-      for (let j = i + 1; j < arr.length; j++) {
-        if (arr[j] < arr[min]) {
+  static async selectionsort (array: any): Promise<any[]> {
+    for (let i = 0; i < array.length - 1; i++) {
+      let min = i
+      for (let j = i + 1; j < array.length + 1; j++) {
+        if (array[j].number < array[min].number) {
           min = j
         }
       }
+
       if (min !== i) {
-        swap(arr, min, i)
+        const key = array[min].number
+        array[min].number = array[i].number
+        array[i].number = key
       }
     }
-    return arr
-  }
-
-  static doubleSelectionSort (arr: number[]): number[] {
-    for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
-      let min: number = arr[i]
-      let max: number = arr[i]
-      let minIndex: number = i
-      let maxIndex: number = i
-
-      for (let k = i; k <= j; k++) {
-        if (arr[k] > max) {
-          max = arr[k]
-          maxIndex = k
-        } else if (arr[k] < min) {
-          min = arr[k]
-          minIndex = k
-        }
-      }
-
-      swap(arr, i, minIndex)
-      if (arr[minIndex] === max) {
-        swap(arr, j, minIndex)
-      } else {
-        swap(arr, j, maxIndex)
-      }
-    }
-    return arr
+    return array
   }
 }
