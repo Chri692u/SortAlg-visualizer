@@ -16,21 +16,21 @@ slider.oninput = function () {
   createArray(arr, 'red')
 }
 
-// btnID.onclick = function () {
-//   createArray(visualizer(sortAlg.value, arr), 'green')
-// }
+btnID.onclick = function () {
+  createArray(visualizer(sortAlg.value, arr), 'green')
+}
 
 // Functions
-// function visualizer (val: string, arr: number[]) {
-//   switch (Number(val)) {
-//     case 1:
-//       return Algorithms.insertionSort(arr)
-//     case 2:
-//       return Algorithms.doubleSelectionSort(arr)
-//     case 3:
-//       return Algorithms.bingoSort(arr)
-//   }
-// }
+function visualizer (val: string, arr: number[]) {
+  switch (Number(val)) {
+    case 1:
+      return Algorithms.insertionSort(arr)
+    case 2:
+      return Algorithms.doubleSelectionSort(arr)
+    case 3:
+      return Algorithms.bingoSort(arr)
+  }
+}
 
 function createArray (arr: any, sort: string) : void {
   columns.innerHTML = ''
