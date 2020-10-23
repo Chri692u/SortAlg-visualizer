@@ -7,10 +7,8 @@ const randomArray = (val: number) => {
 
 const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
-const sortAlg: any = document.getElementById('options')
 const btnID: HTMLElement = document.getElementById('btnClick')!
-const showArray: HTMLElement = document.getElementById('showArray')!
-const columns: HTMLElement = document.getElementById("columns")!
+const columns: HTMLElement = document.getElementById('columns')!
 
 output.innerHTML = `Size of array: ${slider.value}`
 
@@ -36,12 +34,11 @@ function visualizer (val: number, arr: number[]) {
   }
 }
 
-
 function createArray (arr: number[]) : void {
   columns.innerHTML = ''
-  for(let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     const div = document.createElement('div')
-    div.setAttribute('class','red')
+    div.setAttribute('class', 'red col')
     div.innerHTML = `${arr[i]}`
     columns.appendChild(div)
     console.log(123)

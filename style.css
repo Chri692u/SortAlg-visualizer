@@ -27,8 +27,8 @@
   text-align: center;
 }
 
-div.centered      { width: 2vh; }
-div#columns       { width: 750px;  margin: 0 auto;}
-div#columns div   { width: 4vh; height: 4vh; float: left; text-align: center; outline-style: solid;}
-div.red           { background-color: #e14e32; }
+div#columns       { width: auto;}
+div#columns div   { width: 4vh; height: 4vh; float: left; outline-style: solid;}
+div.col           { margin-bottom: 10px; margin-right: 10px; text-align: center;}
+div.red           { background-color: #e14e32;}
 /* div.clear         { clear: both; } */
