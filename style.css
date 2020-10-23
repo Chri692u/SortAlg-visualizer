@@ -33,4 +33,5 @@ div#columns div   { width: 4vh; height: 4vh; float: left; text-align: center; ou
 div.col           { margin-bottom: 10px; margin-right: 10px; text-align: center;}
 div.red           { background-color: #e14e32; }
 div.green         { background-color: lightgreen; }
+div.yellow         { background-color: yellow; }
 /* div.clear         { clear: both; } */
