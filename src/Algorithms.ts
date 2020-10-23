@@ -3,13 +3,14 @@ import { swap } from './auxiliaryFunctions'
 export class Algorithms {
   static insertionSort (array: number[]): number[] {
     for (let i = 1; i < array.length; i++) {
-      const key: number = array[i]
+      const key: number = array[i] // highlight key
       let j: number = i - 1
       while (j >= 0 && array[j] > key) {
-        array[j + 1] = array[j]
+        array[j + 1] = array[j] // highlight j
         j--
       }
       array[j + 1] = key
+      console.log(array[j + 1])
     }
     return array
   }
