@@ -27,7 +27,7 @@
 }
 
 div.centered      { width: 2vh; }
-div.columns       { width: 600px;  margin: 0 auto;}
-div.columns div   { width: 4vh; height: 4vh; float: left; text-align: center; outline-style: solid;}
+div#columns       { width: 750px;  margin: 0 auto;}
+div#columns div   { width: 4vh; height: 4vh; float: left; text-align: center; outline-style: solid;}
 div.red           { background-color: #e14e32; }
 /* div.clear         { clear: both; } */

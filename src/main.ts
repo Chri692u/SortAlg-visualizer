@@ -10,16 +10,18 @@ const output: HTMLElement = document.getElementById('array-size')!
 const sortAlg: any = document.getElementById('options')
 const btnID: HTMLElement = document.getElementById('btnClick')!
 const showArray: HTMLElement = document.getElementById('showArray')!
+const columns: HTMLElement = document.getElementById("columns")!
 
 output.innerHTML = `Size of array: ${slider.value}`
 
 slider.oninput = function () {
   output.innerHTML = `Size of array: ${slider.value}`
+  const arr = randomArray(Number(slider.value))
+  createArray(arr)
 }
 
 btnID.onclick = function () {
-  const arr = randomArray(Number(slider.value))
-  showArray.innerHTML = `Unsorted array: ${arr?.join(' ')} ---- Sorted array: ${visualizer(Number(sortAlg.value), arr)?.join(' ')}`
+  // showArray.innerHTML = `Unsorted array: ${arr?.join(' ')} ---- Sorted array: ${visualizer(Number(sortAlg.value), arr)?.join(' ')}`
 }
 
 // Functions
@@ -31,5 +33,17 @@ function visualizer (val: number, arr: number[]) {
       return Algorithms.doubleSelectionSort(arr)
     case 3:
       return Algorithms.bingoSort(arr)
+  }
+}
+
+
+function createArray (arr: number[]) : void {
+  columns.innerHTML = ''
+  for(let i = 0; i < arr.length; i++) {
+    const div = document.createElement('div')
+    div.setAttribute('class','red')
+    div.innerHTML = `${arr[i]}`
+    columns.appendChild(div)
+    console.log(123)
   }
 }
