@@ -25,7 +25,7 @@ btnID.onclick = function () {
 function visualizer (val: string, arr: object[]) {
   switch (Number(val)) {
     case 1:
-      //return Algorithms.insertionSort(arr)
+      return Algorithms.insertionSort(arr)
     case 2:
       return Algorithms.selectionsort(arr)
     case 3:
