@@ -21,7 +21,6 @@ export class Algorithms {
       array[j + 1].number = key
       array[j + 1].color = 'green' // color = green, element is sorted
       drawArray(array)
-      // await delay(1000)
     }
     array.forEach((element: { color: string }) => {
       element.color = 'green'
