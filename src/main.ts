@@ -1,5 +1,5 @@
 import { Algorithms } from './Algorithms' // Sorting algorithm implementation class
-import { randomArray, drawArray } from './auxiliaryFunctions'
+import { randomArray, drawArray, isSorted } from './auxiliaryFunctions'
 
 // HTML binding
 const slider = <HTMLInputElement>document.getElementById('myRange')
@@ -19,6 +19,9 @@ slider.oninput = function () {
 }
 
 btnID.onclick = function () {
+  if (isSorted(arr)) {
+    arr = randomArray(Number(slider.value), Number(slider.value))
+  }
   visualizer(options.value, arr)
 }
 
