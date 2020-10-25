@@ -1,19 +1,20 @@
 import { drawArray, delay } from './auxiliaryFunctions'
 
 export class Algorithms {
-  static async insertionSort (array: any): Promise<any[]> {
+  static async insertionSort (array: any, drawSpeed: number): Promise<any[]> {
+    console.log(drawSpeed)
     for (let i = 1; i < array.length; i++) {
       const key: number = array[i].number // highlight key (yellow color)
       array[i].color = 'yellow'
       drawArray(array)
-      await delay(500)
+      await delay(drawSpeed)
       let j: number = i - 1
       drawArray(array)
       while (j >= 0 && array[j].number > key) {
         array[j + 1].number = array[j].number // highlight j (yellow)
         array[j].color = 'yellow'
         drawArray(array)
-        await delay(500)
+        await delay(drawSpeed)
         j--
         array[j + 1].color = 'green'
         drawArray(array)

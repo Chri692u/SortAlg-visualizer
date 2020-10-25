@@ -7,6 +7,7 @@ const output: HTMLElement = document.getElementById('array-size')!
 const btnID: HTMLElement = document.getElementById('btnClick')!
 // const columns: HTMLElement = document.getElementById('columns')!
 const options = <HTMLInputElement>document.getElementById('options')!
+const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
 output.innerHTML = `Size of array: ${slider.value}`
 let arr = randomArray(Number(slider.value))
 
@@ -19,14 +20,14 @@ slider.oninput = function () {
 }
 
 btnID.onclick = function () {
-  visualizer(options.value, arr)
+  visualizer(options.value, arr, Number(drawSpeed.value))
 }
 
 // Functions
-function visualizer (val: string, arr: object[]) {
+function visualizer (val: string, arr: object[], drawSpeed: number) {
   switch (Number(val)) {
     case 1:
-      return Algorithms.insertionSort(arr)
+      return Algorithms.insertionSort(arr, drawSpeed)
     case 2:
       return Algorithms.selectionsort(arr)
   }
