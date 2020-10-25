@@ -60,10 +60,8 @@ export class Algorithms {
       const m = Math.floor((s + e) / 2)
       await this.mergeSort(a, s, m, drawSpeed)
       drawArray(a)
-      // await delay(drawSpeed)
       await this.mergeSort(a, m + 1, e, drawSpeed)
       drawArray(a)
-      // await delay(drawSpeed)
       await merge(a, s, m, e, drawSpeed)
       drawArray(a)
     }
