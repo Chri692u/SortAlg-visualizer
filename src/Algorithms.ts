@@ -15,11 +15,11 @@ export class Algorithms {
         drawArray(array)
         await delay(drawSpeed)
         j--
-        array[j + 1].color = 'green'
+        array[j + 1].color = 'red'
         drawArray(array)
       }
       array[j + 1].number = key
-      array[j + 1].color = 'green' // color = green, element is sorted
+      // array[j + 1].color = 'green' // color = green, element is sorted
       drawArray(array)
     }
     array.forEach((element: { color: string }) => {
