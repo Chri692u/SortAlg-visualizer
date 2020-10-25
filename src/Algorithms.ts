@@ -48,4 +48,25 @@ export class Algorithms {
     }
     return array
   }
+
+  static mergeSort (array: any): any {
+    
+  //   if (array.length === 1) {
+  //     return array
+  //   }
+  //   const merge = (leftArr: any, rightArr: any) => {
+  //     const sortedArr: any[] = []
+  //     console.log(rightArr.length, leftArr.length)
+  //     while (leftArr.length && rightArr.length) {
+  //       leftArr[0].number > rightArr[0].number
+  //         ? sortedArr.push(leftArr.shift())
+  //         : sortedArr.push(rightArr.shift())
+  //     }
+  //     return sortedArr.concat(leftArr).concat(rightArr)
+  //   }
+  //   const middle = Math.floor((array.length / 2))
+  //   const leftArr = array.splice(0, middle)
+  //   const rightArr = array
+  //   return merge(this.mergeSort(leftArr), this.mergeSort(rightArr))
+  }
 }

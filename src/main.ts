@@ -30,6 +30,9 @@ function visualizer (val: string, arr: object[], drawSpeed: number) {
       return Algorithms.insertionSort(arr, drawSpeed)
     case 2:
       return Algorithms.selectionsort(arr)
+    case 3:
+      // console.log(arr)
+      return Algorithms.mergeSort(arr)
   }
 }
 
