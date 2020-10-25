@@ -4,15 +4,22 @@ export function swap (arr: number[], indexOne: number, indexTwo: number) {
 
 const columns: HTMLElement = document.getElementById('columns')!
 
-export function randomArray (val: number) {
-  const attrapArray = []
+export function randomArray (val: number, max: number) {
+  const ranArray = []
+  // const arrayThing = shuffleArray(Array.from({ length: val }, (v, i) => i + 1))
+  // for (let i = 0; i < val; i++) {
+  //   ranArray.push({
+  //     number: arrayThing[i],
+  //     color: 'red'
+  //   })
+  // }
   for (let i = 0; i < val; i++) {
-    attrapArray.push({
+    ranArray.push({
       number: Math.floor((Math.random() * 10) + 1),
       color: 'red'
     })
   }
-  return attrapArray
+  return ranArray
 }
 
 export function drawArray (arr: any) : void {
@@ -62,4 +69,12 @@ export async function merge (a:any, s:number, m:number, e:number, drawSpeed: num
     a[p].color = 'green'
     a[s++] = arr[p]
   }
+}
+
+function shuffleArray (array: number[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    swap(array, i, j)
+  }
+  return array
 }

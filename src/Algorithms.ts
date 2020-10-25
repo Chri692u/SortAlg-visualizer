@@ -1,7 +1,7 @@
 import { drawArray, delay, merge } from './auxiliaryFunctions'
 
 export class Algorithms {
-  static async insertionSort (array: any, drawSpeed: number): Promise<any[]> {
+  static async insertionSort (array: any, drawSpeed: number = 200): Promise<any[]> {
     for (let i = 1; i < array.length; i++) {
       const key: number = array[i].number // highlight key (yellow color)
       array[i].color = 'yellow'
@@ -38,7 +38,6 @@ export class Algorithms {
           min = j
         }
       }
-
       if (min !== i) {
         const key = array[min].number
         array[min].number = array[i].number
@@ -48,25 +47,16 @@ export class Algorithms {
     return array
   }
 
-  static async mergeSort (a:any, s:number, e:number, drawSpeed: number) {
+  static async mergeSort (a:any, s:number, e:number, drawSpeed: number = 100) {
     if (s < e) {
       const m = Math.floor((s + e) / 2)
       await this.mergeSort(a, s, m, drawSpeed)
-      // for (let i = s; i < m; i++) {
-      //   a[i].color = 'yellow'
-      // }
       drawArray(a)
-      await delay(200)
+      // await delay(drawSpeed)
       await this.mergeSort(a, m + 1, e, drawSpeed)
-      // for (let i = s; i < m; i++) {
-      //   a[i].color = 'yellow'
-      // }
       drawArray(a)
-      await delay(200)
+      // await delay(drawSpeed)
       await merge(a, s, m, e, drawSpeed)
-      // for (let i = s; i < m; i++) {
-      //   a[i].color = 'green'
-      // }
       drawArray(a)
     }
   }
