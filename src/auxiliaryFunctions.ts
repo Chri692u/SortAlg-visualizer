@@ -30,25 +30,26 @@ export function delay (ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-export function merge(a:any, s:any, m:any, e:any){
+export function merge (a:any, s:any, m:any, e:any) {
   let p = s
   let q = m + 1
-  let arr = []
+  const arr = []
   let k = 0
 
-  for(let i = s; i <= e; i++){
-    if(p > m){
+  for (let i = s; i <= e; i++) {
+    if (p > m) {
       arr[k++] = a[q++]
-    } else if(q > e){
+    } else if (q > e) {
       arr[k++] = a[p++]
-    } else if(a[p] < a[q])  /* first merge happends here, when the subarray's length is 1 */{
+    } else if (a[p] < a[q]) /* first merge happends here, when the subarray's length is 1 */{
       arr[k++] = a[p++]
     } else {
       arr[k++] = a[q++]
     }
   }
 
-  for(let p = 0; p < k; p++){
+  for (let p = 0; p < k; p++) {
     a[s++] = arr[p]
   }
+  drawArray(a)
 }
