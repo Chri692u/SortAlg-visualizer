@@ -6,14 +6,14 @@ export class Algorithms {
       const key: number = array[i].number // highlight key (yellow color)
       array[i].color = 'yellow'
       drawArray(array)
-      await delay(500)
+      await delay(250)
       let j: number = i - 1
       drawArray(array)
       while (j >= 0 && array[j].number > key) {
         array[j + 1].number = array[j].number // highlight j (yellow)
         array[j].color = 'yellow'
         drawArray(array)
-        await delay(500)
+        await delay(250)
         j--
         array[j + 1].color = 'green'
         drawArray(array)

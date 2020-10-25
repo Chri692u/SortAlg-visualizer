@@ -31,13 +31,3 @@ function visualizer (val: string, arr: object[]) {
       return Algorithms.selectionsort(arr)
   }
 }
-
-// function drawArray (arr: any) : void {
-//   columns.innerHTML = ''
-//   for (let i = 0; i < arr.length; i++) {
-//     const div = document.createElement('div')
-//     div.setAttribute('class', `col ${arr[i].color}`)
-//     div.innerHTML = `${arr[i].number}`
-//     columns.appendChild(div)
-//   }
-// }
