@@ -1,7 +1,7 @@
 import { drawArray, delay, merge } from './auxiliaryFunctions'
 
 export class Algorithms {
-  static async insertionSort (array: any, drawSpeed: number = 200): Promise<any[]> {
+  static async insertionSort (array: any, drawSpeed: number = 0) {
     for (let i = 1; i < array.length; i++) {
       const key: number = array[i].number // highlight key (yellow color)
       array[i].color = 'yellow'
@@ -26,7 +26,6 @@ export class Algorithms {
       element.color = 'green'
     })
     drawArray(array)
-    return array
   }
 
   static async selectionsort (array: any): Promise<any[]> {
@@ -46,7 +45,7 @@ export class Algorithms {
     return array
   }
 
-  static async mergeSort (a:any, s:number, e:number, drawSpeed: number = 100) {
+  static async mergeSort (a:any, s:number, e:number, drawSpeed: number = 0) {
     if (s < e) {
       const m = Math.floor((s + e) / 2)
       await this.mergeSort(a, s, m, drawSpeed)
@@ -58,5 +57,32 @@ export class Algorithms {
       await merge(a, s, m, e, drawSpeed)
       drawArray(a)
     }
+  }
+
+  static async bubbleSort (array: any, drawSpeed: number = 0) {
+    let tempNum = 0
+    for (let i = array.length - 1; i >= 0; i--) {
+      for (let j = 1; j <= i; j++) {
+        if (array[j - 1].number > array[j].number) {
+          const temp = array[j - 1]
+          array[j].color = 'yellow'
+          drawArray(array)
+          await delay(drawSpeed)
+          array[j - 1] = array[j]
+          array[j] = temp
+          tempNum = j
+          drawArray(array)
+          await delay(drawSpeed)
+        } else {
+          array[j].color = 'green'
+        }
+        array[j - 1].color = 'red'
+      }
+      array[tempNum].color = 'green'
+    }
+    array.forEach((element: { color: string }) => {
+      element.color = 'green'
+    })
+    drawArray(array)
   }
 }

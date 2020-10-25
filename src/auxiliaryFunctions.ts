@@ -6,19 +6,19 @@ const columns: HTMLElement = document.getElementById('columns')!
 
 export function randomArray (val: number, max: number) {
   const ranArray = []
-  // const arrayThing = shuffleArray(Array.from({ length: val }, (v, i) => i + 1))
-  // for (let i = 0; i < val; i++) {
-  //   ranArray.push({
-  //     number: arrayThing[i],
-  //     color: 'red'
-  //   })
-  // }
+  const arrayThing = shuffleArray(Array.from({ length: val }, (v, i) => i + 1))
   for (let i = 0; i < val; i++) {
     ranArray.push({
-      number: Math.floor((Math.random() * 10) + 1),
+      number: arrayThing[i],
       color: 'red'
     })
   }
+  // for (let i = 0; i < val; i++) {
+  //   ranArray.push({
+  //     number: Math.floor((Math.random() * 10) + 1),
+  //     color: 'red'
+  //   })
+  // }
   return ranArray
 }
 

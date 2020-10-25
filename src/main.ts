@@ -31,5 +31,7 @@ function visualizer (val: string, arr: object[]) {
       return Algorithms.selectionsort(arr)
     case 3:
       return Algorithms.mergeSort(arr, 0, arr.length - 1)
+    case 4:
+      return Algorithms.bubbleSort(arr)
   }
 }
