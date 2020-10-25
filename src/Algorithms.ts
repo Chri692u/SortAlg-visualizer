@@ -47,12 +47,26 @@ export class Algorithms {
     return array
   }
 
-  static mergeSort (a:any, s:number, e:number): any {
+  static async mergeSort (a:any, s:number, e:number, drawSpeed: number) {
     if (s < e) {
       const m = Math.floor((s + e) / 2)
-      this.mergeSort(a, s, m)
-      this.mergeSort(a, m + 1, e)
-      merge(a, s, m, e)
+      await this.mergeSort(a, s, m, drawSpeed)
+      // for (let i = s; i < m; i++) {
+      //   a[i].color = 'yellow'
+      // }
+      drawArray(a)
+      await delay(200)
+      await this.mergeSort(a, m + 1, e, drawSpeed)
+      // for (let i = s; i < m; i++) {
+      //   a[i].color = 'yellow'
+      // }
+      drawArray(a)
+      await delay(200)
+      await merge(a, s, m, e, drawSpeed)
+      // for (let i = s; i < m; i++) {
+      //   a[i].color = 'green'
+      // }
+      drawArray(a)
     }
   }
 }
