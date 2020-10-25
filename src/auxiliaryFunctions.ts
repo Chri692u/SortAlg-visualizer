@@ -71,10 +71,19 @@ export async function merge (a:any, s:number, m:number, e:number, drawSpeed: num
   }
 }
 
-function shuffleArray (array: number[]) {
+export function shuffleArray (array: number[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     swap(array, i, j)
   }
   return array
+}
+
+export function isSorted (array: any) {
+  for (let i = 1; i < array.length; i++) {
+    if (array[i - 1].number > array[i].number) {
+      return false
+    }
+  }
+  return true
 }

@@ -1,4 +1,4 @@
-import { drawArray, delay, merge } from './auxiliaryFunctions'
+import { drawArray, delay, merge, shuffleArray, isSorted } from './auxiliaryFunctions'
 
 export class Algorithms {
   static async insertionSort (array: any, drawSpeed: number = 0) {
@@ -28,21 +28,31 @@ export class Algorithms {
     drawArray(array)
   }
 
-  static async selectionsort (array: any): Promise<any[]> {
-    for (let i = 0; i < array.length - 1; i++) {
-      let min = i
-      for (let j = i + 1; j < array.length + 1; j++) {
-        if (array[j].number < array[min].number) {
-          min = j
+  static async selectionsort (array: any, drawSpeed: number = 0) {
+    let minIdx
+    let temp
+    const len = array.length
+    for (let i = 0; i < len; i++) {
+      minIdx = i
+      for (let j = i + 1; j < len; j++) {
+        array[j].color = 'yellow'
+        array[minIdx].color = 'yellow'
+        drawArray(array)
+        await delay(drawSpeed)
+        if (array[j].number < array[minIdx].number) {
+          array[minIdx].color = 'red'
+          minIdx = j
         }
+        array[j].color = 'red'
+        drawArray(array)
+        await delay(drawSpeed)
       }
-      if (min !== i) {
-        const key = array[min].number
-        array[min].number = array[i].number
-        array[i].number = key
-      }
+      temp = array[i]
+      array[i] = array[minIdx]
+      array[minIdx] = temp
+      array[i].color = 'green'
+      drawArray(array)
     }
-    return array
   }
 
   static async mergeSort (a:any, s:number, e:number, drawSpeed: number = 0) {
@@ -79,6 +89,20 @@ export class Algorithms {
         array[j - 1].color = 'red'
       }
       array[tempNum].color = 'green'
+    }
+    array.forEach((element: { color: string }) => {
+      element.color = 'green'
+    })
+    drawArray(array)
+  }
+
+  static async bogoSort (array: any, drawSpeed: number = 0) {
+    let sorted = false
+    while (!sorted) {
+      array = shuffleArray(array)
+      sorted = isSorted(array)
+      drawArray(array)
+      await delay(drawSpeed)
     }
     array.forEach((element: { color: string }) => {
       element.color = 'green'

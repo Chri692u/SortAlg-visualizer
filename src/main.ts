@@ -6,7 +6,7 @@ const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
 const btnID: HTMLElement = document.getElementById('btnClick')!
 const options = <HTMLInputElement>document.getElementById('options')!
-const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
+// const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
 output.innerHTML = `Size of array: ${slider.value}`
 let arr = randomArray(Number(slider.value), 1)
 
@@ -33,5 +33,7 @@ function visualizer (val: string, arr: object[]) {
       return Algorithms.mergeSort(arr, 0, arr.length - 1)
     case 4:
       return Algorithms.bubbleSort(arr)
+    case 5:
+      return Algorithms.bogoSort(arr)
   }
 }
