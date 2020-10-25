@@ -30,6 +30,6 @@ function visualizer (val: string, arr: object[]) {
     case 2:
       return Algorithms.selectionsort(arr)
     case 3:
-      return Algorithms.mergeSort(arr, 0, arr.length - 1)
+      return Algorithms.mergeSort(arr, 0, arr.length - 1, Number(drawSpeed))
   }
 }
