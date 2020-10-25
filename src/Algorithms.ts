@@ -2,7 +2,6 @@ import { drawArray, delay, merge } from './auxiliaryFunctions'
 
 export class Algorithms {
   static async insertionSort (array: any, drawSpeed: number): Promise<any[]> {
-    console.log(drawSpeed)
     for (let i = 1; i < array.length; i++) {
       const key: number = array[i].number // highlight key (yellow color)
       array[i].color = 'yellow'
@@ -49,12 +48,12 @@ export class Algorithms {
     return array
   }
 
-  static mergeSort (a:any, s:any, e:any): any {
-    if(s < e){
-      let m = Math.floor((s+e)/2)
-      Algorithms.mergeSort(a,s,m)
-      Algorithms.mergeSort(a,m+1,e)
-      merge(a,s,m,e)
+  static mergeSort (a:any, s:number, e:number): any {
+    if (s < e) {
+      const m = Math.floor((s + e) / 2)
+      this.mergeSort(a, s, m)
+      this.mergeSort(a, m + 1, e)
+      merge(a, s, m, e)
     }
   }
 }
