@@ -1,42 +1,43 @@
 import { Algorithms } from './Algorithms' // Sorting algorithm implementation class
-import { randomArray, drawArray, isSorted } from './auxiliaryFunctions'
+import { randomArray, drawArray, isSorted } from './auxiliaryFunctions' // Exported auxiliary functions
 
 // HTML binding
+const startIndex: number = 0
 const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
 const btnID: HTMLElement = document.getElementById('btnClick')!
 const options = <HTMLInputElement>document.getElementById('options')!
 // const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
 output.innerHTML = `Size of array: ${slider.value}`
-let arr = randomArray(Number(slider.value), 1)
+let array = randomArray(Number(slider.value), 1)
 
-drawArray(arr)
+drawArray(array)
 
-slider.oninput = function () {
+slider.oninput = function () { // Creates array
   output.innerHTML = `Size of array: ${slider.value}`
-  arr = randomArray(Number(slider.value), Number(slider.value))
-  drawArray(arr)
+  array = randomArray(Number(slider.value), Number(slider.value))
+  drawArray(array)
 }
 
-btnID.onclick = function () {
-  if (isSorted(arr)) {
-    arr = randomArray(Number(slider.value), Number(slider.value))
+btnID.onclick = function () { // Call visualizer function on button interaction
+  if (isSorted(array)) {
+    array = randomArray(Number(slider.value), Number(slider.value))
   }
-  visualizer(options.value, arr)
+  visualizer(options.value, array)
 }
 
-// Functions
-function visualizer (val: string, arr: object[]) {
+// Visualizer function - calls selected algorithm on generated array
+function visualizer (val: string, array: object[]) {
   switch (Number(val)) {
     case 1:
-      return Algorithms.insertionSort(arr)
+      return Algorithms.insertionSort(array)
     case 2:
-      return Algorithms.selectionsort(arr)
+      return Algorithms.selectionsort(array)
     case 3:
-      return Algorithms.mergeSort(arr, 0, arr.length - 1)
+      return Algorithms.mergeSort(array, startIndex, array.length - 1)
     case 4:
-      return Algorithms.bubbleSort(arr)
+      return Algorithms.bubbleSort(array)
     case 5:
-      return Algorithms.bogoSort(arr)
+      return Algorithms.bogoSort(array)
   }
 }
