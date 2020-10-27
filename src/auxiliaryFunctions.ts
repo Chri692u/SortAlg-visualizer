@@ -4,7 +4,7 @@ export function swap (arr: number[], indexOne: number, indexTwo: number) { // Us
 
 const columns: HTMLElement = document.getElementById('columns')! // DOM element for array
 
-export function randomArray (maxIndex: number, max: number) { // Creates the array to be sorted
+export function randomArray (maxIndex: number) { // Creates the array to be sorted
   const randArray = []
   const array = shuffleArray(Array.from({ length: maxIndex }, (v, i) => i + 1))
   for (let i = 0; i < maxIndex; i++) {

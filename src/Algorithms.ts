@@ -106,4 +106,50 @@ export class Algorithms {
     })
     drawArray(array)
   }
+
+  static async cocktailSort (array: any, drawSpeed: number = 0) {
+    let swapping = true
+    while (swapping) {
+      swapping = false
+      for (let i = 0; i < array.length - 1; i++) {
+        if (array[i].number > array[i + 1].number) {
+          const key = array[i]
+          array[i] = array[i + 1]
+          array[i + 1] = key
+          swapping = true
+          array[i + 1].color = 'yellow'
+          array[i].color = 'yellow'
+          drawArray(array)
+          await delay(drawSpeed)
+          array[i + 1].color = 'red'
+          array[i].color = 'red'
+        }
+      }
+
+      if (!swapping) {
+        break
+      }
+
+      swapping = false
+
+      for (let i = array.length - 1; i > 0; i--) {
+        if (array[i - 1].number > array[i].number) {
+          const key = array[i]
+          array[i] = array[i - 1]
+          array[i - 1] = key
+          swapping = true
+          array[i - 1].color = 'yellow'
+          array[i].color = 'yellow'
+          drawArray(array)
+          await delay(drawSpeed)
+          array[i - 1].color = 'red'
+          array[i].color = 'red'
+        }
+      }
+    }
+    array.forEach((element: { color: string }) => {
+      element.color = 'green'
+    })
+    drawArray(array)
+  }
 }

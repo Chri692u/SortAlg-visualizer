@@ -9,19 +9,19 @@ const btnID: HTMLElement = document.getElementById('btnClick')!
 const options = <HTMLInputElement>document.getElementById('options')!
 // const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
 output.innerHTML = `Size of array: ${slider.value}`
-let array = randomArray(Number(slider.value), 1)
+let array = randomArray(Number(slider.value))
 
 drawArray(array)
 
 slider.oninput = function () { // Creates array
   output.innerHTML = `Size of array: ${slider.value}`
-  array = randomArray(Number(slider.value), Number(slider.value))
+  array = randomArray(Number(slider.value))
   drawArray(array)
 }
 
 btnID.onclick = function () { // Call visualizer function on button interaction
   if (isSorted(array)) {
-    array = randomArray(Number(slider.value), Number(slider.value))
+    array = randomArray(Number(slider.value))
   }
   visualizer(options.value, array)
 }
@@ -39,5 +39,7 @@ function visualizer (val: string, array: object[]) {
       return Algorithms.bubbleSort(array)
     case 5:
       return Algorithms.bogoSort(array)
+    case 6:
+      return Algorithms.cocktailSort(array)
   }
 }
