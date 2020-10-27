@@ -203,21 +203,4 @@ export class Algorithms {
     }
     drawArray(array)
   }
-
-  async ShellSort (array: any) {
-    for (let h = array.length; h > 0; h = Number(parseInt(h / 2)) {
-
-      for (let i = h; i < array.length; i++) {
-
-        let k = array[i];
-        let j;
-
-            for (j = i; j >= h && k < array[j - h]; j -= h) {
-              array[j] = array[j - h];
-            }
-
-            array[j] = k;
-        }
-    }
-  }
 }
