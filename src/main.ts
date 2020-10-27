@@ -87,6 +87,9 @@ async function visualizer (val: string, array: object[]) {
       speedSlider.disabled = false
       speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
+    case 8:
+
+      break
   }
   speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
   btnID.disabled = false
