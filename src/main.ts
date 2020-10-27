@@ -61,13 +61,10 @@ async function visualizer (val: string, array: object[]) {
       await Algorithms.selectionsort(array)
       break
     case 3:
-      speedSlider.disabled = true
-      speedOutput.innerHTML = 'Dynamic sorting delay does not work with merge sort'
-      await Algorithms.mergeSort(array, startIndex, array.length - 1)
-      speedSlider.disabled = false
+      await Algorithms.bubbleSort(array)
       break
     case 4:
-      await Algorithms.bubbleSort(array)
+      await Algorithms.cocktailSort(array)
       break
     case 5:
       speedSlider.disabled = true
@@ -76,7 +73,11 @@ async function visualizer (val: string, array: object[]) {
       speedSlider.disabled = false
       break
     case 6:
-      await Algorithms.cocktailSort(array)
+      speedSlider.disabled = true
+      speedOutput.innerHTML = 'Dynamic sorting delay does not work with merge sort'
+      await Algorithms.mergeSort(array, startIndex, array.length - 1)
+      speedSlider.disabled = false
+      speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
     case 7:
       speedSlider.disabled = true

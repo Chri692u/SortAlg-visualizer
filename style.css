@@ -32,6 +32,10 @@
   margin: 0 auto;
 }
 
+#random-number{
+  margin-left: 20px;
+}
+
 
 
 div.centered      { width: 2vh; }
