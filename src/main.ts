@@ -82,7 +82,7 @@ async function visualizer (val: string, array: object[]) {
       await Algorithms.cocktailSort(array)
       break
     case 7:
-      Algorithms.heapSort(arr)
+      Algorithms.heapSort(array, array.length)
       console.log(array)
       break
   }
