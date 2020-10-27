@@ -7,7 +7,7 @@ export class Algorithms {
     for (let i = 1; i < array.length; i++) {
       speedSlider.oninput = function () { // Sorting speed
         drawSpeed = Number(speedSlider.value)
-        speedOutput.innerHTML = `Dynamic sorting delay: ${speedSlider.value} ms`
+        speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       }
       const key: number = array[i].number
       array[i].color = 'yellow' // Colors the key yellow
@@ -41,7 +41,7 @@ export class Algorithms {
       minIndex = i
       speedSlider.oninput = function () { // Sorting speed
         drawSpeed = Number(speedSlider.value)
-        speedOutput.innerHTML = `Dynamic sorting delay: ${speedSlider.value} ms`
+        speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       }
       for (let j = i + 1; j < len; j++) {
         array[j].color = 'yellow' // Colors current comparison yellow
@@ -76,11 +76,19 @@ export class Algorithms {
     }
   }
 
-  static async bubbleSort (array: any, drawSpeed: number = 0) { // TODO: COMMENTS ON COLORS
+  static async bubbleSort (array: any, drawSpeed: number = Number(speedSlider.value)) { // TODO: COMMENTS ON COLORS
     let tempNum = 0
     for (let i = array.length - 1; i >= 0; i--) {
       for (let j = 1; j <= i; j++) {
+        speedSlider.oninput = function () { // Sorting speed
+          drawSpeed = Number(speedSlider.value)
+          speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+        }
         if (array[j - 1].number > array[j].number) {
+          speedSlider.oninput = function () { // Sorting speed
+            drawSpeed = Number(speedSlider.value)
+            speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+          }
           const temp = array[j - 1]
           array[j].color = 'yellow'
           drawArray(array)
@@ -124,6 +132,10 @@ export class Algorithms {
     while (swapping) {
       swapping = false
       for (let i = 0; i < array.length - 1; i++) {
+        speedSlider.oninput = function () { // Sorting speed
+          drawSpeed = Number(speedSlider.value)
+          speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+        }
         if (array[i].number > array[i + 1].number) {
           const key = array[i]
           array[i] = array[i + 1]
@@ -146,6 +158,10 @@ export class Algorithms {
       swapping = false
 
       for (let i = array.length - 1; i > 0; i--) {
+        speedSlider.oninput = function () { // Sorting speed
+          drawSpeed = Number(speedSlider.value)
+          speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+        }
         if (array[i - 1].number > array[i].number) {
           const key = array[i]
           array[i] = array[i - 1]

@@ -8,7 +8,7 @@ const arraySlider = <HTMLInputElement>document.getElementById('myRange')
 const arrayOutput: HTMLElement = document.getElementById('array-size')!
 const speedSlider = <HTMLInputElement>document.getElementById('drawSpeed')
 const speedOutput: HTMLElement = document.getElementById('draw-speed')!
-const btnID: HTMLElement = document.getElementById('btnClick')!
+const btnID = <HTMLInputElement>document.getElementById('btnClick')!
 const options = <HTMLInputElement>document.getElementById('options')!
 const box = <HTMLInputElement>document.getElementById('randomVal')!
 // const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
@@ -20,15 +20,15 @@ drawArray(array)
 
 box.onclick = function () {
   box.checked
-    ? array = randomArray(Number(arraySlider.value), 1)
-    : array = randomArray(Number(arraySlider.value))
+    ? array = randomArray(Number(arraySlider.value))
+    : array = randomArray(Number(arraySlider.value), 1)
   drawArray(array)
 }
 
 arraySlider.oninput = function () { // Creates array
   box.checked
-    ? array = randomArray(Number(arraySlider.value), 1)
-    : array = randomArray(Number(arraySlider.value))
+    ? array = randomArray(Number(arraySlider.value))
+    : array = randomArray(Number(arraySlider.value), 1)
   arrayOutput.innerHTML = `Size of array: ${arraySlider.value}`
   drawArray(array)
 }
@@ -38,7 +38,7 @@ speedSlider.oninput = function () { // Sorting speed
 }
 
 btnID.onclick = function () { // Call visualizer function on button interaction
-  if (box.checked && isSorted(array)) {
+  if (!box.checked && isSorted(array)) {
     array = randomArray(Number(arraySlider.value), 1)
   } else {
     if (isSorted(array)) {
@@ -51,7 +51,9 @@ btnID.onclick = function () { // Call visualizer function on button interaction
 
 // Visualizer function - calls selected algorithm on generated array
 async function visualizer (val: string, array: object[]) {
-  speedOutput.innerHTML = `Dynamic sorting delay: ${speedSlider.value} ms`
+  btnID.disabled = true
+  arraySlider.disabled = true
+  box.disabled = true
   switch (Number(val)) {
     case 1:
       await Algorithms.insertionSort(array)
@@ -67,13 +69,17 @@ async function visualizer (val: string, array: object[]) {
       speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
     case 4:
-      Algorithms.bubbleSort(array)
+      await Algorithms.bubbleSort(array)
       break
     case 5:
-      Algorithms.bogoSort(array)
+      speedSlider.disabled = true
+      speedOutput.innerHTML = 'Dynamic sorting delay does not work with bogo sort'
+      await Algorithms.bogoSort(array)
+      speedSlider.disabled = false
+      speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
     case 6:
-      Algorithms.cocktailSort(array)
+      await Algorithms.cocktailSort(array)
       break
     case 7:
       Algorithms.heapSort(arr)
@@ -81,4 +87,7 @@ async function visualizer (val: string, array: object[]) {
       break
   }
   speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+  btnID.disabled = false
+  box.disabled = false
+  arraySlider.disabled = false
 }
