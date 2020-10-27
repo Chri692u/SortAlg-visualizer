@@ -109,6 +109,8 @@ export class Algorithms {
 
   static async cocktailSort (array: any, drawSpeed: number = 0) {
     let swapping = true
+    let tempNum1 = array.length - 1
+    let tempNum2 = 0
     while (swapping) {
       swapping = false
       for (let i = 0; i < array.length - 1; i++) {
@@ -125,6 +127,7 @@ export class Algorithms {
           array[i].color = 'red'
         }
       }
+      array[tempNum1--].color = 'green'
 
       if (!swapping) {
         break
@@ -146,6 +149,7 @@ export class Algorithms {
           array[i].color = 'red'
         }
       }
+      array[tempNum2++].color = 'green'
     }
     array.forEach((element: { color: string }) => {
       element.color = 'green'
