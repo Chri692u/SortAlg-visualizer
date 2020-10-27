@@ -81,7 +81,11 @@ async function visualizer (val: string, array: object[]) {
       await Algorithms.cocktailSort(array)
       break
     case 7:
+      speedSlider.disabled = true
+      speedOutput.innerHTML = 'Dynamic sorting delay does not work with heap sort'
       await Algorithms.heapSort(array, array.length)
+      speedSlider.disabled = false
+      speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
   }
   speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
