@@ -86,35 +86,21 @@ export function isSorted (array: any) { // Checks if an array is sorted
   return true
 }
 
-export function maxHeapify (array: any, i: number) {
-  const l = left(i)
-  const r = right(i)
-  let largest = 0
-  if (l <= array.lenght && array[l] > array[i]) {
-    largest = l
-  } else {
-    largest = i
-  }
-  if (r <= array.lenght && array[r] > array[i]) {
-    largest = r
-  }
-  if (largest === i) {
-    swap(array, array[i], array[largest])
-    maxHeapify(array, largest)
-  }
-}
+export function maxHeapify (array: any, n: number, i: number) {
+  let largest = i
+  const left = 2 * i + 1
+  const right = 2 * i + 2
 
-export function buildMaxHeap (array: any) {
-  const index: number = array.lenght / 2
-  for (let i = index; i > 0; i--) {
-    maxHeapify(array, i)
+  if (left < n && array[left] > array[largest]) {
+    largest = left
   }
-}
-
-function left (i: number) {
-  return i * 2
-}
-
-function right (i: number) {
-  return 2 * i + 1
+  if (right < n && array[right] > array[largest]) {
+    largest = right
+  }
+  if (largest !== i) {
+    const temp = array[i]
+    array[i] = array[largest]
+    array[largest] = temp
+    maxHeapify(array, n, largest)
+  }
 }

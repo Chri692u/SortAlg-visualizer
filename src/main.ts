@@ -3,6 +3,7 @@ import { randomArray, drawArray, isSorted } from './auxiliaryFunctions' // Expor
 
 // HTML binding
 const startIndex: number = 0
+const arr: number[] = [1, 4, 6, 8, 2, 8]
 const arraySlider = <HTMLInputElement>document.getElementById('myRange')
 const arrayOutput: HTMLElement = document.getElementById('array-size')!
 const speedSlider = <HTMLInputElement>document.getElementById('drawSpeed')
@@ -73,6 +74,10 @@ async function visualizer (val: string, array: object[]) {
       break
     case 6:
       Algorithms.cocktailSort(array)
+      break
+    case 7:
+      Algorithms.heapSort(arr)
+      console.log(array)
       break
   }
   speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`

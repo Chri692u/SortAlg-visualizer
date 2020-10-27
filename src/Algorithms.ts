@@ -1,4 +1,4 @@
-import { drawArray, delay, merge, shuffleArray, isSorted, swap, maxHeapify, buildMaxHeap } from './auxiliaryFunctions'
+import { drawArray, delay, merge, shuffleArray, isSorted, maxHeapify } from './auxiliaryFunctions'
 const speedSlider = <HTMLInputElement>document.getElementById('drawSpeed')
 const speedOutput: HTMLElement = document.getElementById('draw-speed')!
 
@@ -167,12 +167,15 @@ export class Algorithms {
     drawArray(array)
   }
 
-  static async heapSort (array: any) {
-    buildMaxHeap(array)
-    for (let i = array.length; i > 0; i--) {
-      swap(array, array[1], array[i])
-      array.pop()
-      maxHeapify(array, 1)
+  static heapSort (array: any, n: number) {
+    for (let i = (n / 2) - 1; i >= 0; i--) {
+      maxHeapify(array, n, i)
+    }
+    for (let i = n - 1; i >= 0; i--) {
+      const temp = array[0]
+      array[0] = array[i]
+      array[i] = temp
+      maxHeapify(array, i, 0)
     }
   }
 }
