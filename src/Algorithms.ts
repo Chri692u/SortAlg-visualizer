@@ -132,6 +132,10 @@ export class Algorithms {
     while (swapping) {
       swapping = false
       for (let i = 0; i < array.length - 1; i++) {
+        speedSlider.oninput = function () { // Sorting speed
+          drawSpeed = Number(speedSlider.value)
+          speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+        }
         if (array[i].number > array[i + 1].number) {
           const key = array[i]
           array[i] = array[i + 1]
@@ -154,6 +158,10 @@ export class Algorithms {
       swapping = false
 
       for (let i = array.length - 1; i > 0; i--) {
+        speedSlider.oninput = function () { // Sorting speed
+          drawSpeed = Number(speedSlider.value)
+          speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+        }
         if (array[i - 1].number > array[i].number) {
           const key = array[i]
           array[i] = array[i - 1]
@@ -175,8 +183,12 @@ export class Algorithms {
     drawArray(array)
   }
 
-  static heapSort (array: any, n: number) {
-    for (let i = (n / 2) - 1; i >= 0; i--) {
+  static async heapSort (array: any, n: number, drawSpeed: number = Number(speedSlider.value)) {
+    for (let i = Math.floor(n / 2); i >= 0; i--) {
+      array[i].color = 'yellow'
+      await delay(drawSpeed)
+      drawArray(array)
+      // array[i].color = 'red'
       maxHeapify(array, n, i)
     }
     for (let i = n - 1; i >= 0; i--) {
@@ -184,7 +196,11 @@ export class Algorithms {
       array[0] = array[i]
       array[i] = temp
       maxHeapify(array, i, 0)
+      array[0].color = 'blue'
+      array[i].color = 'green'
+      await delay(drawSpeed)
+      drawArray(array)
     }
-    console.log(array)
+    drawArray(array)
   }
 }

@@ -86,15 +86,15 @@ export function isSorted (array: any) { // Checks if an array is sorted
   return true
 }
 
-export function maxHeapify (array: any, n: number, i: number) {
+export async function maxHeapify (array: any, n: number, i: number) {
   let largest = i
   const left = 2 * i + 1
   const right = 2 * i + 2
 
-  if (left < n && array[left] > array[largest]) {
+  if (left < n && array[left].number > array[largest].number) {
     largest = left
   }
-  if (right < n && array[right] > array[largest]) {
+  if (right < n && array[right].number > array[largest].number) {
     largest = right
   }
   if (largest !== i) {
