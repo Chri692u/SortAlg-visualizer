@@ -59,9 +59,9 @@ export async function merge (a:any, s:number, m:number, e:number, drawSpeed: num
     for (let i = p; i < q; i++) { // Colors the entire sub-array elements yellow
       a[i].color = 'yellow'
     }
-    drawArray(a)
-    await delay(drawSpeed)
   }
+  drawArray(a)
+  await delay(drawSpeed)
 
   for (let p = 0; p < k; p++) { // Colors sorted elements green in sub-array
     a[p].color = 'green'

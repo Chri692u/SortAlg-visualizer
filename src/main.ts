@@ -14,7 +14,7 @@ const box = <HTMLInputElement>document.getElementById('randomVal')!
 arrayOutput.innerHTML = `Size of array: ${arraySlider.value}`
 speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
 let array = randomArray(Number(arraySlider.value))
-
+console.log(array)
 drawArray(array)
 
 box.onclick = function () {

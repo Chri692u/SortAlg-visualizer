@@ -11,10 +11,7 @@ export class Algorithms {
       }
       const key: number = array[i].number
       array[i].color = 'yellow' // Colors the key yellow
-      drawArray(array)
-      await delay(drawSpeed)
       let j: number = i - 1
-      drawArray(array)
       while (j >= 0 && array[j].number > key) {
         array[j + 1].number = array[j].number
         array[j].color = 'yellow' // Colors the comparison same color as key
@@ -22,11 +19,11 @@ export class Algorithms {
         await delay(drawSpeed)
         j--
         array[j + 1].color = 'red'
-        drawArray(array)
       }
       array[j + 1].number = key
-      drawArray(array)
     }
+    drawArray(array)
+
     array.forEach((element: { color: string }) => { // Once the array is sorted, color all green
       element.color = 'green'
     })
@@ -54,7 +51,6 @@ export class Algorithms {
         }
         array[j].color = 'red' // Color all other colors red
         drawArray(array)
-        await delay(drawSpeed)
       }
       temp = array[i]
       array[i] = array[minIndex]
@@ -68,9 +64,9 @@ export class Algorithms {
     if (s < e) {
       const m = Math.floor((s + e) / 2)
       await this.mergeSort(a, s, m, drawSpeed)
-      drawArray(a)
+      // drawArray(a)
       await this.mergeSort(a, m + 1, e, drawSpeed)
-      drawArray(a)
+      // drawArray(a)
       await merge(a, s, m, e, drawSpeed)
       drawArray(a)
     }
@@ -85,10 +81,6 @@ export class Algorithms {
           speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
         }
         if (array[j - 1].number > array[j].number) {
-          speedSlider.oninput = function () { // Sorting speed
-            drawSpeed = Number(speedSlider.value)
-            speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
-          }
           const temp = array[j - 1]
           array[j].color = 'yellow'
           drawArray(array)
@@ -96,8 +88,6 @@ export class Algorithms {
           array[j - 1] = array[j]
           array[j] = temp
           tempNum = j
-          drawArray(array)
-          await delay(drawSpeed)
         } else {
           array[j].color = 'green'
         }
@@ -188,7 +178,6 @@ export class Algorithms {
       array[i].color = 'yellow'
       await delay(drawSpeed)
       drawArray(array)
-      // array[i].color = 'red'
       maxHeapify(array, n, i)
     }
     for (let i = n - 1; i >= 0; i--) {
