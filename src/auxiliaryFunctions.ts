@@ -85,3 +85,36 @@ export function isSorted (array: any) { // Checks if an array is sorted
   }
   return true
 }
+
+export function maxHeapify (array: any, i: number) {
+  const l = left(i)
+  const r = right(i)
+  let largest = 0
+  if (l <= array.lenght && array[l] > array[i]) {
+    largest = l
+  } else {
+    largest = i
+  }
+  if (r <= array.lenght && array[r] > array[i]) {
+    largest = r
+  }
+  if (largest === i) {
+    swap(array, array[i], array[largest])
+    maxHeapify(array, largest)
+  }
+}
+
+export function buildMaxHeap (array: any) {
+  const index: number = array.lenght / 2
+  for (let i = index; i > 0; i--) {
+    maxHeapify(array, i)
+  }
+}
+
+function left (i: number) {
+  return i * 2
+}
+
+function right (i: number) {
+  return 2 * i + 1
+}
