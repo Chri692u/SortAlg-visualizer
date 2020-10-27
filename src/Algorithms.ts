@@ -1,8 +1,14 @@
 import { drawArray, delay, merge, shuffleArray, isSorted } from './auxiliaryFunctions'
+const speedSlider = <HTMLInputElement>document.getElementById('drawSpeed')
+const speedOutput: HTMLElement = document.getElementById('draw-speed')!
 
 export class Algorithms {
-  static async insertionSort (array: any, drawSpeed: number = 0) {
+  static async insertionSort (array: any, drawSpeed: number = Number(speedSlider.value)) {
     for (let i = 1; i < array.length; i++) {
+      speedSlider.oninput = function () { // Sorting speed
+        drawSpeed = Number(speedSlider.value)
+        speedOutput.innerHTML = `Dynamic sorting delay: ${speedSlider.value} ms`
+      }
       const key: number = array[i].number
       array[i].color = 'yellow' // Colors the key yellow
       drawArray(array)
@@ -27,12 +33,16 @@ export class Algorithms {
     drawArray(array)
   }
 
-  static async selectionsort (array: any, drawSpeed: number = 0) {
+  static async selectionsort (array: any, drawSpeed: number = Number(speedSlider.value)) {
     let minIndex
     let temp
     const len = array.length
     for (let i = 0; i < len; i++) {
       minIndex = i
+      speedSlider.oninput = function () { // Sorting speed
+        drawSpeed = Number(speedSlider.value)
+        speedOutput.innerHTML = `Dynamic sorting delay: ${speedSlider.value} ms`
+      }
       for (let j = i + 1; j < len; j++) {
         array[j].color = 'yellow' // Colors current comparison yellow
         array[minIndex].color = 'yellow' // Colors minimum element yellow
@@ -54,7 +64,7 @@ export class Algorithms {
     }
   }
 
-  static async mergeSort (a:any, s:number, e:number, drawSpeed: number = 0) {
+  static async mergeSort (a:any, s:number, e:number, drawSpeed: number = Number(speedSlider.value)) {
     if (s < e) {
       const m = Math.floor((s + e) / 2)
       await this.mergeSort(a, s, m, drawSpeed)
