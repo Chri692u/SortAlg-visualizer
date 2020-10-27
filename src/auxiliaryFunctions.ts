@@ -4,14 +4,23 @@ export function swap (arr: number[], indexOne: number, indexTwo: number) { // Us
 
 const columns: HTMLElement = document.getElementById('columns')! // DOM element for array
 
-export function randomArray (maxIndex: number) { // Creates the array to be sorted
+export function randomArray (maxIndex: number, type: number = 0) { // Creates the array to be sorted
   const randArray = []
-  const array = shuffleArray(Array.from({ length: maxIndex }, (v, i) => i + 1))
-  for (let i = 0; i < maxIndex; i++) {
-    randArray.push({ // Pushes numbers to array and colors all "unsorted" elements red
-      number: array[i],
-      color: 'red'
-    })
+  if (!type) {
+    const array = shuffleArray(Array.from({ length: maxIndex }, (v, i) => i + 1))
+    for (let i = 0; i < maxIndex; i++) {
+      randArray.push({ // Pushes numbers to array and colors all "unsorted" elements red
+        number: array[i],
+        color: 'red'
+      })
+    }
+  } else {
+    for (let i = 0; i < maxIndex; i++) {
+      randArray.push({ // Pushes numbers to array and colors all "unsorted" elements red
+        number: Math.floor(Math.random() * maxIndex + 1),
+        color: 'red'
+      })
+    }
   }
   return randArray
 }

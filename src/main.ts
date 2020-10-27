@@ -7,22 +7,37 @@ const slider = <HTMLInputElement>document.getElementById('myRange')
 const output: HTMLElement = document.getElementById('array-size')!
 const btnID: HTMLElement = document.getElementById('btnClick')!
 const options = <HTMLInputElement>document.getElementById('options')!
+const box = <HTMLInputElement>document.getElementById('randomVal')!
 // const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
 output.innerHTML = `Size of array: ${slider.value}`
 let array = randomArray(Number(slider.value))
 
 drawArray(array)
 
+box.onclick = function () {
+  box.checked
+    ? array = randomArray(Number(slider.value), 1)
+    : array = randomArray(Number(slider.value))
+  drawArray(array)
+}
+
 slider.oninput = function () { // Creates array
+  box.checked
+    ? array = randomArray(Number(slider.value), 1)
+    : array = randomArray(Number(slider.value))
   output.innerHTML = `Size of array: ${slider.value}`
-  array = randomArray(Number(slider.value))
   drawArray(array)
 }
 
 btnID.onclick = function () { // Call visualizer function on button interaction
-  if (isSorted(array)) {
-    array = randomArray(Number(slider.value))
+  if (box.checked && isSorted(array)) {
+    array = randomArray(Number(slider.value), 1)
+  } else {
+    if (isSorted(array)) {
+      array = randomArray(Number(slider.value))
+    }
   }
+
   visualizer(options.value, array)
 }
 
