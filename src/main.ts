@@ -65,7 +65,6 @@ async function visualizer (val: string, array: object[]) {
       speedOutput.innerHTML = 'Dynamic sorting delay does not work with merge sort'
       await Algorithms.mergeSort(array, startIndex, array.length - 1)
       speedSlider.disabled = false
-      speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
     case 4:
       await Algorithms.bubbleSort(array)
@@ -75,7 +74,6 @@ async function visualizer (val: string, array: object[]) {
       speedOutput.innerHTML = 'Dynamic sorting delay does not work with bogo sort'
       await Algorithms.bogoSort(array)
       speedSlider.disabled = false
-      speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
     case 6:
       await Algorithms.cocktailSort(array)
@@ -85,7 +83,6 @@ async function visualizer (val: string, array: object[]) {
       speedOutput.innerHTML = 'Dynamic sorting delay does not work with heap sort'
       await Algorithms.heapSort(array, array.length)
       speedSlider.disabled = false
-      speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
       break
   }
   speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
