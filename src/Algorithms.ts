@@ -175,8 +175,8 @@ export class Algorithms {
     drawArray(array)
   }
 
-  static heapSort (array: any, n: number) {
-    for (let i = (n / 2) - 1; i >= 0; i--) {
+  static async heapSort (array: any, n: number) {
+    for (let i = Math.floor(n / 2); i >= 0; i--) {
       maxHeapify(array, n, i)
     }
     for (let i = n - 1; i >= 0; i--) {
@@ -185,6 +185,6 @@ export class Algorithms {
       array[i] = temp
       maxHeapify(array, i, 0)
     }
-    console.log(array)
+    drawArray(array)
   }
 }
