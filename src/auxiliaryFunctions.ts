@@ -86,35 +86,36 @@ export function isSorted (array: any) { // Checks if an array is sorted
   return true
 }
 
-export function maxHeapify (array: any, i: number) {
-  const l = left(i)
-  const r = right(i)
-  let largest = 0
-  if (l <= array.lenght && array[l] > array[i]) {
-    largest = l
-  } else {
-    largest = i
+export async function maxHeapify (array: any, i: number, n: number) {
+  const leftChild = left(i)
+  const rightChild = right(i)
+  let max = i
+
+  if (leftChild < n && array[leftChild].number > array[max].number) {
+    max = leftChild
   }
-  if (r <= array.lenght && array[r] > array[i]) {
-    largest = r
+
+  if (rightChild < n && array[rightChild].number > array[max].number) {
+    max = rightChild
   }
-  if (largest === i) {
-    swap(array, array[i], array[largest])
-    maxHeapify(array, largest)
+
+  if (max !== i) {
+    swap(array, i, max)
+    maxHeapify(array, max, n)
   }
 }
 
-export function buildMaxHeap (array: any) {
-  const index: number = array.lenght / 2
-  for (let i = index; i > 0; i--) {
-    maxHeapify(array, i)
-  }
-}
+// export function buildMaxHeap (array: any) {
+//   const index: number = array.length / 2
+//   for (let i = index; i > 0; i--) {
+//     maxHeapify(array, i)
+//   }
+// }
 
 function left (i: number) {
-  return i * 2
+  return 2 * i + 1
 }
 
 function right (i: number) {
-  return 2 * i + 1
+  return 2 * i + 2
 }

@@ -1,4 +1,4 @@
-import { drawArray, delay, merge, shuffleArray, isSorted, swap, maxHeapify, buildMaxHeap } from './auxiliaryFunctions'
+import { drawArray, delay, merge, shuffleArray, isSorted, swap, maxHeapify /* buildMaxHeap */ } from './auxiliaryFunctions'
 const speedSlider = <HTMLInputElement>document.getElementById('drawSpeed')
 const speedOutput: HTMLElement = document.getElementById('draw-speed')!
 
@@ -132,10 +132,6 @@ export class Algorithms {
     while (swapping) {
       swapping = false
       for (let i = 0; i < array.length - 1; i++) {
-        speedSlider.oninput = function () { // Sorting speed
-          drawSpeed = Number(speedSlider.value)
-          speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
-        }
         if (array[i].number > array[i + 1].number) {
           const key = array[i]
           array[i] = array[i + 1]
@@ -158,10 +154,6 @@ export class Algorithms {
       swapping = false
 
       for (let i = array.length - 1; i > 0; i--) {
-        speedSlider.oninput = function () { // Sorting speed
-          drawSpeed = Number(speedSlider.value)
-          speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
-        }
         if (array[i - 1].number > array[i].number) {
           const key = array[i]
           array[i] = array[i - 1]
@@ -184,11 +176,16 @@ export class Algorithms {
   }
 
   static async heapSort (array: any) {
-    buildMaxHeap(array)
-    for (let i = array.length; i > 0; i--) {
-      swap(array, array[1], array[i])
-      array.pop()
-      maxHeapify(array, 1)
+    let n = array.length
+    for (let i = Math.floor(n / 2); i >= 0; i--) {
+      maxHeapify(array, i, n)
     }
+
+    for (let i = array.length - 1; i > 0; i--) {
+      swap(array, 0, i)
+      n--
+      maxHeapify(array, 0, n)
+    }
+    console.log(array)
   }
 }

@@ -80,6 +80,9 @@ async function visualizer (val: string, array: object[]) {
     case 6:
       await Algorithms.cocktailSort(array)
       break
+    case 7:
+      await Algorithms.heapSort(array)
+      break
   }
   speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
   btnID.disabled = false
