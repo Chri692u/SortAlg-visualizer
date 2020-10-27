@@ -1,4 +1,4 @@
-import { drawArray, delay, merge, shuffleArray, isSorted, swap, maxHeapify, buildMaxHeap} from './auxiliaryFunctions'
+import { drawArray, delay, merge, shuffleArray, isSorted, swap, maxHeapify, buildMaxHeap } from './auxiliaryFunctions'
 
 export class Algorithms {
   static async insertionSort (array: any, drawSpeed: number = 0) {
