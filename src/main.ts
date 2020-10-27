@@ -3,7 +3,6 @@ import { randomArray, drawArray, isSorted } from './auxiliaryFunctions' // Expor
 
 // HTML binding
 const startIndex: number = 0
-const arr: number[] = [1, 4, 6, 8, 2, 8]
 const arraySlider = <HTMLInputElement>document.getElementById('myRange')
 const arrayOutput: HTMLElement = document.getElementById('array-size')!
 const speedSlider = <HTMLInputElement>document.getElementById('drawSpeed')
