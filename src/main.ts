@@ -3,38 +3,45 @@ import { randomArray, drawArray, isSorted } from './auxiliaryFunctions' // Expor
 
 // HTML binding
 const startIndex: number = 0
-const slider = <HTMLInputElement>document.getElementById('myRange')
-const output: HTMLElement = document.getElementById('array-size')!
+const arraySlider = <HTMLInputElement>document.getElementById('myRange')
+const arrayOutput: HTMLElement = document.getElementById('array-size')!
+const speedSlider = <HTMLInputElement>document.getElementById('drawSpeed')
+const speedOutput: HTMLElement = document.getElementById('draw-speed')!
 const btnID: HTMLElement = document.getElementById('btnClick')!
 const options = <HTMLInputElement>document.getElementById('options')!
 const box = <HTMLInputElement>document.getElementById('randomVal')!
 // const drawSpeed = <HTMLInputElement>document.getElementById('drawSpeed')!
-output.innerHTML = `Size of array: ${slider.value}`
-let array = randomArray(Number(slider.value))
+arrayOutput.innerHTML = `Size of array: ${arraySlider.value}`
+speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+let array = randomArray(Number(arraySlider.value))
 
 drawArray(array)
 
 box.onclick = function () {
   box.checked
-    ? array = randomArray(Number(slider.value), 1)
-    : array = randomArray(Number(slider.value))
+    ? array = randomArray(Number(arraySlider.value), 1)
+    : array = randomArray(Number(arraySlider.value))
   drawArray(array)
 }
 
-slider.oninput = function () { // Creates array
+arraySlider.oninput = function () { // Creates array
   box.checked
-    ? array = randomArray(Number(slider.value), 1)
-    : array = randomArray(Number(slider.value))
-  output.innerHTML = `Size of array: ${slider.value}`
+    ? array = randomArray(Number(arraySlider.value), 1)
+    : array = randomArray(Number(arraySlider.value))
+  arrayOutput.innerHTML = `Size of array: ${arraySlider.value}`
   drawArray(array)
+}
+
+speedSlider.oninput = function () { // Sorting speed
+  speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
 }
 
 btnID.onclick = function () { // Call visualizer function on button interaction
   if (box.checked && isSorted(array)) {
-    array = randomArray(Number(slider.value), 1)
+    array = randomArray(Number(arraySlider.value), 1)
   } else {
     if (isSorted(array)) {
-      array = randomArray(Number(slider.value))
+      array = randomArray(Number(arraySlider.value))
     }
   }
 
@@ -42,19 +49,31 @@ btnID.onclick = function () { // Call visualizer function on button interaction
 }
 
 // Visualizer function - calls selected algorithm on generated array
-function visualizer (val: string, array: object[]) {
+async function visualizer (val: string, array: object[]) {
+  speedOutput.innerHTML = `Dynamic sorting delay: ${speedSlider.value} ms`
   switch (Number(val)) {
     case 1:
-      return Algorithms.insertionSort(array)
+      await Algorithms.insertionSort(array)
+      break
     case 2:
-      return Algorithms.selectionsort(array)
+      await Algorithms.selectionsort(array)
+      break
     case 3:
-      return Algorithms.mergeSort(array, startIndex, array.length - 1)
+      speedSlider.disabled = true
+      speedOutput.innerHTML = 'Dynamic sorting delay does not work with merge sort'
+      await Algorithms.mergeSort(array, startIndex, array.length - 1)
+      speedSlider.disabled = false
+      speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
+      break
     case 4:
-      return Algorithms.bubbleSort(array)
+      Algorithms.bubbleSort(array)
+      break
     case 5:
-      return Algorithms.bogoSort(array)
+      Algorithms.bogoSort(array)
+      break
     case 6:
-      return Algorithms.cocktailSort(array)
+      Algorithms.cocktailSort(array)
+      break
   }
+  speedOutput.innerHTML = `Sorting delay: ${speedSlider.value} ms`
 }

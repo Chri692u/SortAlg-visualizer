@@ -6,7 +6,7 @@ const columns: HTMLElement = document.getElementById('columns')! // DOM element 
 
 export function randomArray (maxIndex: number, type: number = 0) { // Creates the array to be sorted
   const randArray = []
-  if (!type) {
+  if (type) {
     const array = shuffleArray(Array.from({ length: maxIndex }, (v, i) => i + 1))
     for (let i = 0; i < maxIndex; i++) {
       randArray.push({ // Pushes numbers to array and colors all "unsorted" elements red
