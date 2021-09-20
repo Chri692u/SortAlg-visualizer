@@ -1,4 +1,3 @@
 # SortAlg-visualizer
-npm build bundles into js. 
-
-bundle.js should be lastest
+npm build bundles into js.
+Or clone repo -> public -> index.html (should be newest version)
